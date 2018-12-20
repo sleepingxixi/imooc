@@ -9,6 +9,12 @@
 .right{
 	float: right;
 }
+.show{
+	display: block;
+}
+.hide{
+	display: none;
+}
 
 /*顶部*/
 .topBar{
@@ -115,7 +121,7 @@
 }
 .each_list{
 	padding-left: 11px;
-	padding-top: 16px;
+	padding-top: 14px;
 	padding-bottom: 14px;
 	background: url(../images/icon/right_list.png) 172px 18px no-repeat;
 	background-color: #4593fd;
@@ -130,11 +136,28 @@
 	font-size: 12px;
 	color:#c2d9f8;
 }
+.each_list a:hover{
+	text-decoration: underline;
+}
 .each_list .special{
 	font-size: 14px;
 	margin-left: 1em;
 	background: url(../images/icon/text_bg.png) left top no-repeat;
 	text-decoration: underline;
+}
+.active_list{
+	background-color: #fff;
+	background: none;
+	color:#000;
+	border-left: 1px solid #4593fd;
+
+}
+.active_list dd a,.active_list dt a{
+	color:#000;
+}
+.active_list .special {
+	color:#fff;
+	text-decoration: none;
 }
 
 /*详细的列表*/
@@ -182,6 +205,7 @@
 	float: left;
 }
 
+
 .topMenu li{
 	float: left;
 	display: inline-block;
@@ -197,5 +221,191 @@
 	background-color: #4593fd;
 }
 
+/*轮播滚动广告*/
+.banner{
+	margin-bottom: 15px;
+}
+.banner_list{
+	position:relative;
+	float:right;
+	overflow: hidden;
+}
+.each_banner{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+}
+.each_banner li{
+	float:left;
+}
+.each_banner img{
+	display: block;
+}
+.big_ban{
+	width: 811px;
+	height: 325px;
+}
+.big_ban_all{
+	width:1622px;
+	height: 325px;
+}
+.sm_ban{
+	width: 190px;
+	height: 400px;
+}
+.sm_ban_all{
+	width: 280px;
+	height: 400px;
+}
 
+.banner_link{
+	position: absolute;
+	left:0px;
+	bottom:10px;
+	width: 100%;
+	text-align: center;
+}
+.banner_link a{
+	width: 20px;
+	height: 5px;
+	background-color: #fff;
+	margin:0px 3px;
+	display: inline-block;
+}
+.banner_link .active{
+	background-color: #ff7700;
+}
 
+/*商品列表*/
+.shop_tip{
+	height: 44px;
+}
+.shop_icon{
+	width: 44px;
+	height: 44px;
+	background:url(../images/icon/shop_tip.png) top left no-repeat;
+	float: left;
+}
+.shop_tip p{
+	float: left;
+	font-size: 24px;
+	font-family: "Microsoft YaHei","微软雅黑";
+	color:#000;
+	margin-left:15px;
+	line-height: 44px;
+
+}
+.shop_tip a{
+	float: right;
+	color:#000;
+	font-family: "宋体";
+	font-size:12px;
+	padding-top:32px;
+}
+.shop_tip a:hover{
+	text-decoration: underline;
+}
+/*商品展示*/
+.shop_show{
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+
+/*商品展示列表*/
+.shop_show_detail{
+	width: 810px;
+	height: 397px;
+	border-bottom: 3px solid #ff7201;
+}
+.shop_show_detail .shop_show_top{
+	height: 263px;
+}
+.shop_show_top .each_shop_show{
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	width: 201px;
+	text-align: center;
+	font-family: "Microsoft YaHei","微软雅黑";
+	line-height: 24px;
+	float: left;
+}
+.each_shop_show .show_img{
+	width: 201px;
+	height: 198px;
+
+}
+.each_shop_show .show_img img{
+	width: 201px;
+	height: 198px;
+}
+.each_shop_show h3{
+	margin-top:15px;
+	font-size: 16px;
+	color: #000;
+}
+.each_shop_show p{
+	font-size: 14px;
+	color:#ff7300;
+}
+.each_shop_sm{
+	width: 201px;
+	height: 134px;
+	border-right: 1px solid #ccc;
+	float: left;
+
+}
+.shop_show_img{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.each_shop_sm img{
+	width: 100px;
+	height: 82px;
+	padding-top: 18px;
+}
+.each_shop_sm .show_text{
+	width: 100px;
+	padding-top: 38px;
+	float: left;
+	font-family: "Microsoft YaHei","微软雅黑";
+	line-height: 18px;
+}
+.each_shop_sm .show_text span{
+	color:#ff7300;
+	font-size: 12px;
+}
+.each_shop_sm .show_text p{
+	font-size: 16px;
+}
+/*主页底部*/
+.foot_fr{
+	height: 25px;
+}
+.foot{
+	height: 223px;
+	width: 100%;
+	background-color: #d4d4d4;
+	text-align: center;
+}
+.foot_text{
+	font-size: 12px;
+	line-height: 24px;
+	font-family: "新宋体";
+	
+	padding-top: 44px;
+}
+.foot_text a{
+	color:#000;
+}
+.foot_text a:hover{
+	color:#ff7300;
+}
+.foot_ban{
+	padding-top:22px;
+}
+.foot_ban a{
+	margin-left:25px;
+}
