@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css3选择器</title>
+	<style type="text/css">
+	/*属性选择器*/
+		li{
+			width: 100px;
+			height: 50px;
+		}
+		li[id="demo1"]{
+			background-color:red;
+		}
+		/*匹配后缀*/
+		li[id$="\_1"]{
+			background-color: grey;
+		}
+		/*匹配头部*/
+		li[id^="\_"]{
+			background-color: yellow;
+		}
+		/*匹配所有*/
+		li[id*="demo11"]{
+			border: 1px solid #000;
+		}
+
+		/*伪类选择器*/
+		p[id$="line"]:first-line{
+			font-weight: bold;
+		}
+		p[id$="letter"]:first-letter{
+			color:red;
+			font-size:20px;
+		}
+		ul[id="test_before"] li{
+			width: 500px;
+			height: 50px;
+		}
+		ul[id^="test_"] li:before{
+			content:"[before]";
+		}
+		ul[id^="test_"] li:after{
+			content:"[after]";
+		}
+		:root{
+			background-color: #ddd;
+		}
+		table *:not(th){
+			border:1px solid #000;
+		}
+		table tr td:empty{
+			background-color: yellow;
+		}
+
+		div[id^="section"]:target{
+			background-color: yellow;
+		}
+		ul[class="test1_target"] li{
+			float: left;
+			line-height: 20px;
+		}
+		/*清浮动*/
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.clearfix{
+			zoom:1;
+		}
+		ul[id="child_test"] li:first-child{
+			background-color: yellow;
+		}
+		ul[id="child_test"] li:last-child{
+			background-color: red;
+		}
+		ul[id^="nth-"] li{
+			width:300px;
+			height: 50px;
+		}
+		ul[id^="nth-"] li:nth-child(2){
+			background-color: yellow;
+		}
+		ul[id^="nth-"] li:nth-last-child(2){
+			background-color: green;
+		}
+		ul[id^="nth-"] li:nth-child(odd){
+			border:1px solid #000;
+		}
+		ul[id^="nth-"] li:nth-child(even){
+			border:1px solid blue;
+		}
+		form[id="user_test"] input[type="text"]:focus{
+			border-color: yellow;
+		}
+		form[id="user_test"] input[type="submit"]:active{
+			background-color: blue;
+		}
+		form[id="user_test"] a:hover{
+			color:red;
+		}
+		form[id="user_agree"] input[type="button"]:enabled{
+			background-color: yellow;
+		}
+		input[id="number_test"]:in-range{
+			color:#000;
+		}
+		input[id="number_test"]:out-of-range{
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		function on_change(){
+			var radio1=document.getElementById("radio1");
+			var button=document.getElementById("text1");
+			if(radio1.checked){
+				button.disabled="";
+			}else{
+				radio1.checked="";
+				button.disabled="disabled";
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>**********选择器*********************</p>
+	<ul>
+		<li id="demo1">demo1</li>
+		<li id="demo2">demo2</li>
+		<li id="demo1_1">demo1_1</li>
+		<li id="demo2_1">demo2_1</li>
+		<li id="_demo3">_demo3</li>
+		<li id="demo1_2">demo1_2</li>
+		<li id="demo11">demo11</li>
+	</ul>
+
+	<p id="test_first_line">**********伪类选择器firset-line****************<br/>
+	这是测试情况，上面那行加粗了，这行不变</p>
+
+	<p>************伪类选择器first-letter**********</p>
+	<p id="test_first_letter">首字母显示不一样</p>
+
+	<p>*************伪类选择器before****************</p>
+	<ul id="test_before">
+		<li>我们都是老客户</li>
+		<li>我们都是老客户</li>
+		<li>我们都是老客户</li>
+		<li>我们都是老客户</li>
+		<li>我们都是老客户</li>
+	</ul>
+
+	<p>**************选择器not******************</p>
+	<P>*********将table下面的元素都添加边框，除了th以外****************</P>
+	<P>**********选择器empty*************</P>
+	<p>*******对于空值赋予背景颜色****************</p>
+	<table>
+		<thead>这是一个用来练习的表格</thead>
+		<tbody>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>性别</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>王五</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>翠花</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>赵柳</td>
+				<td></td>
+			</tr>
+
+		</tbody>
+	</table>
+	<p>*******target选择器***********</p>
+	<p>*******当鼠标点击到对应的链接后，修改跳转到的指定地方的样式******</p>
+	<ul class="test1_target clearfix">
+		<li><a href="#section_1">按钮1</a></li>
+		<li><a href="#section_2">按钮2</a></li>
+		<li><a href="#section_3">按钮3</a></li>
+	</ul>
+	<div id="section_1">模块1</div>
+	<div id="section_2">模块2</div>
+	<div id="section_3">模块3</div>
+	<p>*********first-child和last-child选择器************</p>
+	<ul id="child_test">
+		<li>child_1</li>
+		<li>child_2</li>
+		<li>child_3</li>
+		<li>child_4</li>
+	</ul>
+	<p>**********nth-child和nth-last-child选择器*****************</p>
+	<ul id="nth-child-test">
+		<li>nth-child-1</li>
+		<li>nth-child-2</li>
+		<li>nth-child-3</li>
+		<li>nth-child-4</li>
+	</ul>
+	<ul id="nth-last-child-test">
+		<li>nth-last-child-1</li>
+		<li>nth-last-child-2</li>
+		<li>nth-last-child-3</li>
+		<li>nth-last-child-4</li>
+	</ul>
+	<p>***********伪类选择器hover active focus***********</p>
+	<form id="user_test">
+		用户名：<input type="text" name="username">
+		密码：<input type="password" name="password">
+		<input type="submit" name="submit" value="登录">
+		<input type="reset" name="reset" value="重置">
+		<a href="#">注册</a>
+	</form>
+	<P>************伪类选择器disabled enabled***********</P>
+	<form id="user_agree">
+		<input type="radio" name="user_think" value="agree" id="radio1" onclick="on_change();">同意
+		<input type="radio" name="user_think" vaule="disagree" id="radio2" checked onclick="on_change();">不同意
+		<input type="button" name="next" value="下一步" id="text1"disabled>
+	</form>
+	<p>*******伪类选择器in-range out-of-range********</p>
+	<form>
+		请输入数字:<input type="number" name="number" min=0 max=10 id="number_test">
+	</form>
+</body>
+</html>

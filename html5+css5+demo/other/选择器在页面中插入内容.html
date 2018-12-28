@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选择器在页面中插入内容</title>
+	<style type="text/css">
+		h2:before{
+			content:"come on";
+			color:white;
+			background-color: orange;
+			font-family: "Microsoft Yahei","微软雅黑";
+			padding:1px 5px;
+			margin-right: 10px;
+		}
+		h2.none:before{
+			content: none;
+		}
+		h3:after{
+			content:url(../images/bom.png);
+		}
+	</style>
+</head>
+<body>
+	<!-- 在文字前插入内容 -->
+	<p>**********使用before选择器**********</p>
+	<p>*****通过content:none给第二行开头不添加文字*****</p>
+	<h2>在这段文件前添加一段特别的字</h2>
+	<h2 class="none">在这段文件前不要添加文字</h2>
+	<h3>劲爆商品</h3>
+</body>
+</html>
