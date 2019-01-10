@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>列表展开与收起</title>
+<link rel="stylesheet" type="text/css" href="css/show_list.css">
+</head>
+<body>
+    <div id="content_list">
+        <div class="each_list" >品牌</div>
+        <div class="each_list" >价格</div>
+        <div class="each_list" >屏幕尺寸</div>
+        <div class="each_list hide" style="display:none;">电视类型</div>
+        <div class="each_list hide" style="display:none;">分辨率</div>
+        <div class="each_list hide" style="display:none;">能效等级</div>
+        <div id="more_btn">
+            <span class="more_text"><a id="more_url" href="javascript:showList()">更多选项</a></span>
+        </div>
+    </div>
+    
+<script src="js/show_list.js"></script>
+</body>
+</html>

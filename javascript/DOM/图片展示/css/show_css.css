@@ -1,0 +1,31 @@
+body,ul,li,h1{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+#show_list{
+    margin:50px 50px;
+    font-size:16px;
+}
+#show_list li{
+    float:left;
+    margin:20px;
+}
+#show_list li a:hover{
+    text-decoration: underline;
+    color:orange;
+}
+#show_list:after{
+    content:"";
+    display: block;
+    clear:both;
+}
+#show_img{
+    border:1px solid #ccc;
+    margin:50px 50px;;
+}

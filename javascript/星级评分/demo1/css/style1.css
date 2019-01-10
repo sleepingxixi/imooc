@@ -1,0 +1,21 @@
+body,ul,li{
+        margin:0;
+        padding:0;
+}
+li{
+    list-style-type: none;
+}
+.rate_list{
+    width:130px;
+    height: 26px;
+    margin:300px auto;
+}
+li[class="each_rate"]{
+    width: 26px;
+    height: 26px;
+    background: url(../img/start.png) no-repeat;
+    background-position: 0 -26px;
+    float: left;
+    /* display: inline-block; */
+    cursor: pointer;
+}

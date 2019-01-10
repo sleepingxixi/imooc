@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RegExp</title>
+    <script>
+        // 字面量
+        var reg = /\bis\b/g;
+        var test = "He Is a good boy,he iS very good";
+        // alert(test.replace(reg, "IS"));
+        // 构造函数
+        var reg1 = new RegExp("\\bis\\b", "ig");
+        alert(test.replace(reg1, "IS"));
+
+        // 使用方法exec与test进行正则表达式
+        var content="1ws23ed4fr543";
+        var reg3=new RegExp("\\d(\\w)\\d","g");
+        var ret=reg3.exec(content);
+        alert(ret.index+"\t"+reg3.lastIndex+"\t"+ret.toString());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

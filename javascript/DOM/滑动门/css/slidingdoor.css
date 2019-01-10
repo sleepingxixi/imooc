@@ -1,0 +1,21 @@
+/* css reset */
+body{
+    margin:0;
+    padding:0;
+}
+#container{
+    height: 540px;
+    margin:200px auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+#container img{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    border: 1px solid #ddd;
+    
+}

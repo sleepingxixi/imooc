@@ -1,0 +1,33 @@
+body{
+    margin:0;
+    padding: 0;
+}
+#content_list{
+    margin:20px auto;
+    width:1380px;
+    padding:0;
+}
+#content_list .each_list{
+    border-top:1px dotted #ccc;
+}
+#more_btn{
+    border-top: 1px solid #ddd;
+    width: 100%;
+    text-align: center;
+}
+#more_btn .more_text{
+    display: inline-block;
+    float: center;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top:white 1px solid;
+    /* width:300px; */
+    text-align: center;
+    margin-top:-1px;
+    padding:10px;
+}
+
+#more_btn .more_text a{
+    text-decoration: none;
+}
