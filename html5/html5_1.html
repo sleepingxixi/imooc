@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<script type="text/javascript">
+		function AlertSelectionDirection(){
+			var control=document.forms[0]['text'];
+			var Direction=control.selectionDirection;
+			alert(Direction);
+		}
+
+		function button_onclick(){
+			var progressBar=document.getElementById('p1');
+			progressBar.getElementsByTagName('span')[0].textContent="0";
+			for(var i=0;i<=100;i++){
+				updateProgress(i);
+			}
+		}
+
+		function updateProgress(newValue){
+			var progressBar=document.getElementById('p1');
+			progressBar.value=newValue;
+			document.getElementsByTagName('span')[0].textContent=newValue;
+		}
+
+		function show_len(){
+			var file=document.getElementById('filetest');
+			var name;
+			for(var i=0;i<file.files.length;i++){
+				name=file.files[i].name;
+				alert(name);
+			}
+		}
+	// study_readFile
+	var result=document.getElementById('result');
+	var file=document.getElementById('fileList');
+	if(typeof fileReader=='undefined'){
+		result.innerHTML="<p>抱歉，您的浏览器不支持ReadFile</p>";
+		file.setAttribute('disable','disable');
+	}
+	function readAsImage(){
+		var file=document.getElementById('fileList').files[0];
+		if(!/image\/\w+/.test(file.type)){
+			alert("请确保类型为图像");
+			return false;
+		}
+		var reader=new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload=function(){
+			//在页面上显示图片
+			var result=document.getElementById('result');
+			result.innerHTML='<img src="'+this.result+'" alt=""/>'
+		}
+	}
+	// 读取二进制
+	function readAsBinary(){
+		var file=document.getElementById('fileList').files[0];
+		var reader=new FileReader();
+		reader.readAsBinaryString(file);
+		reader.onload=function(f){
+			//页面上显示二进制的结果
+			var result=document.getElementById('result');
+			result.innerHTML=this.result;
+		}
+	}
+	//读取文本形式
+	function readText(){
+		var file=document.getElementById('fileList').files[0];
+		var  reader=new FileReader();
+		reader.readAsText(file);
+		reader.onload=function(f){
+			var result=document.getElementById('result');
+			result.innerHTML=this.result;
+		}
+	}
+	</script>
+	<style type="text/css">
+		input[type="search"]{
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<P>**************list示例****************</P>
+	text:<input type="text" name="greeting" list="greetings">
+	<datalist id="greetings">
+		<option value="Good Morning">Good Morning</option>
+		<option value="Hello">Hello</option>
+		<option value="Good Afternoon">Good Afternoon</option>
+	</datalist>
+	<p>******************autocomplete************</p>
+	text:<input type="text" name="greeting" list="greeting_list" autocomplete="on">
+	<datalist id="greeting_list">
+		<option value="Good Morning">Good Morning</option>
+		<option value="Hello">Hello</option>
+		<option value="Good Afternoon">Good Afternoon</option>
+	</datalist>
+	<p>**************selectionDirection****************</p>
+	<form>
+		<input type="test" name="text">
+		<input type="button" value="点击我" onclick="AlertSelectionDirection()">
+	</form>
+	<p>**********input新增类型***************</p>
+	<form>
+	<input type="url" name="url">
+	<input type="submit" name="submit">
+	</form>
+	<form>
+		<input type="date" name="日期">
+		<input type="time" name="时间">
+		<input type="datetime-local" name="日期时间">
+		<input type="range" name="range1" min="0" max="100" step="5">25
+		<input type="search" name="search1">
+	</form>
+	<p>*****************color*******</p>
+	<form>
+		<input type="color" name="color">
+	</form>
+	<p>*****************sample table*********</p>
+	<form name="form1">
+		<label for="username">姓名</label>
+		<input type="number" name="username" id="username" type="text" required /><br/>	
+	</form>
+	<p>*************progress******************</p>
+	<section>
+		<h2>progress元素的使用示例</h2>
+		<p>完成百分比:<progress id="p1" max=100><span>0</span>%</progress></p>
+		<input type="button" onclick="button_onclick" value="请点击" />
+	</section>
+	<p>*************dialog*****************</p>
+	<input type="button" name="button1" value="点击我试一试" onclick="document.getElementById('bg').show();"/>
+	<dialog id="bg">
+		<form>
+			<lable for="txtName" value="姓名:">姓名:<input type="text" name="username" id="txtName">
+			<lable for="txtPassword" value="密码:">密码:<input type="password" name="password" id="txtPassword">
+			<input type="submit" name="submit" value="提交">
+			<input type="reset" name="reset" value="重置">
+		</form>
+	<input type="button" name="close" value="关闭" onclick="document.getElementById('bg').close();">
+	</dialog>
+	<p>*****************file**************</p>
+	<input type="file" name="file" multiple id="filetest">
+	<input type="button" value="计算文件" onclick="show_len()">
+	<p>******************fileReader*****************</p>
+	<input type="file" id="fileList" value="选择文件">
+	<input type="button" value="读取图像" onclick="readAsImage();">
+	<input type="button" value="读取二进制" onclick="readAsBinary();">
+	<input type="button" value="读取文本文件" onclick="readText();">
+	<div name="result" id="result">
+		
+	</div>
+</body>
+</html>
