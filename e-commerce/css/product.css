@@ -62,6 +62,9 @@
 .each_product_show .descript p{
 	line-height: 18px;
 }
+.each_product_show .descript a:hover{
+	text-decoration: underline;
+}
 .each_product_show .descript .mg_top{
 	height: 14px;
 }
