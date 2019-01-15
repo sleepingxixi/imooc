@@ -1,11 +1,21 @@
-body, ul {
+body, ul, li, input {
     margin: 0;
     padding: 0;
     font-size: 14px;
 }
 
-body{
+body {
     background-color: #f5f5f5;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfloat:hover {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 /* 设置最顶部的内容 */
@@ -18,20 +28,190 @@ body{
 
 .top_content {
     width: 1000px;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.top_content li{
+.top_content li {
     list-style-image: url(../images/li_bg.gif);
-    float:right;
-    width:70px;
+    float: right;
+    width: 70px;
     line-height: 27px;
 }
-.top_content li a:link,.top_content li a:visited{
-    color:rgb(27, 25, 25);
+
+.top_content li a:link, .top_content li a:visited {
+    color: rgb(27, 25, 25);
     text-decoration: none;
 }
-.top_content li a:hover,.top_content li a:active{
+
+.top_content li a:hover, .top_content li a:active {
     color: #3ea0f0;
     text-decoration: none;
+}
+
+/* 设置中间栏 */
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* logo相关设置 */
+
+.logo {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+
+.logo_left {
+    width: 200px;
+    height: 100%;
+    float: left;
+}
+
+.logo_right {
+    float: right;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.logo_right img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.logo_right .tel {
+    color: red;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+
+/* 导航栏设置 */
+
+.nav {
+    height: 40px;
+    width: 100%;
+}
+
+/* 配置导航栏的圆角背景 */
+
+.nav_left {
+    background: url(../images/nav_left.jpg) no-repeat;
+    width: 10px;
+}
+
+.nav_mid {
+    width: 980px;
+    background: url(../images/nav_bg.jpg) repeat-x;
+}
+
+.nav_right {
+    width: 10px;
+    background: url(../images/nav_right.jpg) no-repeat;
+}
+
+.nav_left, .nav_mid, .nav_right {
+    height: 40px;
+    float: left;
+}
+
+.nav_mid_left ul li {
+    list-style: none;
+}
+
+/* 导航栏中间部分的设置 */
+
+.nav_mid_left {
+    width: 680px;
+    float: left;
+}
+
+.nav_mid_right {
+    width: 300px;
+    float: left;
+}
+
+.nav_mid_left li {
+    font-family: "微软雅黑";
+    font-size: 16px;
+    list-style: none;
+    float: left;
+    width: 100px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.nav_mid_left a:link, .nav_mid_left a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav_mid_left a:hover, .nav_mid_left a:active {
+    color: #e0bc1a;
+    text-decoration: none;
+}
+
+/* 搜索框设置 */
+
+.search input {
+    width: 175px;
+    height: 28px;
+    border: 1px solid #fff;
+    margin-top: 5px;
+    background: url(../images/search.jpg) no-repeat right center;
+    background-color: #fff;
+    margin-left: 50px;
+    outline: none;
+    padding-right: 25px;
+}
+
+/* 设置轮播滚动图 */
+
+/* .banner {
+    height: 310px;
+} */
+
+.show_ban {
+    position: relative;
+    width: 1000px;
+    height: 310px;
+    overflow: hidden;
+}
+
+#each_ban {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 3000px;
+}
+
+#each_ban li {
+    float: left;
+}
+
+#each_ban img {
+    display: block;
+    width: 1000px;
+    height: 310px;
+}
+
+.ban_list {
+    background-color: #000;
+    position: relative;
+    top: -15px;
+    left: 440px;
+}
+
+.ban_list a {
+    float: left;
+    display: block;
+    width: 30px;
+    height: 8px;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
+
+.ban_list .active {
+    background-color: #e32217;
 }
