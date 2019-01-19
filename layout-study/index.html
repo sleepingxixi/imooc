@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<title>企业网站布局</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <title>企业网站布局</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- 设置最顶部的内容 -->
     <div class="top">
@@ -19,52 +21,55 @@
                 <li><a href="" onclick="SetHome(window.location)">设为首页</a></li>
             </ul>
         </div>
-     </div><!--顶部标签结束 -->
-     <!-- 设置中间栏 -->
-     <div class="wrap">
-         <div class="logo">
-             <div class="logo_left">
-                 <img src="images/logo.jpg" alt="慕课网">
-             </div>
-             <div class="logo_right">
-                 <img src="images/tel.jpg" alt="联系热线">联系热线:<span class="tel">123-456-789</span>
-             </div>
-         </div><!--logo部分结束-->
-         <div class="nav">
-             <div class="nav_left"></div>
-             <div class="nav_mid">
-                 <!-- 导航部分 -->
-                 <div class="nav_mid_left">
-                     <ul>
-                         <li><a href="#">首页</a></li>
-                     </ul>
-                     <ul>
-                         <li><a href="#">关于慕课</a></li>
-                     </ul>
-                     <ul>
-                         <li><a href="#">新闻动态</a></li>
-                     </ul>
-                     <ul>
-                         <li><a href="#">课程中心</a></li>
-                     </ul>
-                     <ul>
-                         <li><a href="#">在线课程</a></li>
-                     </ul>
-                     <ul>
-                         <li><a href="#">人才招聘</a></li>
-                     </ul>
-                 </div>
-                 <!-- 搜索部分 -->
-                 <div class="nav_mid_right">
-                     <form action="" method="post" class="search">
-                         <input type="text" >
-                     </form>
-                 </div>
-             </div>
-             <div class="nav_right"></div>
-         </div><!--导航设置结束-->
-         <!-- 设置轮播滚动图片 -->
-         <div class="banner">
+    </div>
+    <!--顶部标签结束 -->
+    <!-- 设置中间栏 -->
+    <div class="wrap">
+        <div class="logo">
+            <div class="logo_left">
+                <img src="images/logo.jpg" alt="慕课网">
+            </div>
+            <div class="logo_right">
+                <img src="images/tel.jpg" alt="联系热线">联系热线:<span class="tel">123-456-789</span>
+            </div>
+        </div>
+        <!--logo部分结束-->
+        <div class="nav">
+            <div class="nav_left"></div>
+            <div class="nav_mid">
+                <!-- 导航部分 -->
+                <div class="nav_mid_left">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">关于慕课</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">新闻动态</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">课程中心</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">在线课程</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">人才招聘</a></li>
+                    </ul>
+                </div>
+                <!-- 搜索部分 -->
+                <div class="nav_mid_right">
+                    <form action="" method="post" class="search">
+                        <input type="text">
+                    </form>
+                </div>
+            </div>
+            <div class="nav_right"></div>
+        </div>
+        <!--导航设置结束-->
+        <!-- 设置轮播滚动图片 -->
+        <div class="banner">
             <div class="show_ban">
                 <ul class="each_ban" id="each_ban">
                     <li><a href="#" alt="pic"><img src="images/ad2.jpg" alt=""></a></li>
@@ -79,9 +84,114 @@
                     <li><a href="#" alt="pic4"></a></li>
                 </ul>
             </div>
-         </div>
-     </div><!--中间栏设置结束-->
+        </div>
+        <!--轮播滚动结束-->
+        <!-- 信息展示部分 -->
+        <div class="show_info">
+            <div class="info_left">
+                <div class="title">
+                    <span class="title_name">新闻中心</span><span class="title_more"><a href="#">More&gt;&gt;</a></span>
+                </div>
+                <div class="pic_news">
+                    <img src="images/news.jpg" alt="新闻图片">
+                    <p><a href="#"><span>520 慕女神喊你来表白</span></a><br />活动时间：5月20日--5月25日<br />活动公布时间：5月26日<br />
+                        <a href="#">Learn More&gt;&gt;</a></p>
+                </div>
+                <div class="news_list">
+                    <ul>
+                        <li><a href="#">【慕课访谈 用户篇】“有为屌丝”在路上<span>2018-06-01</span></a></li>
+                        <li><a href="#">【慕课访谈 用户篇】“有为屌丝”在路上<span>2018-06-01</span></a></li>
+                        <li><a href="#">【慕课访谈 用户篇】“有为屌丝”在路上<span>2018-06-01</span></a></li>
+                        <li><a href="#">【慕课访谈 用户篇】“有为屌丝”在路上<span>2018-06-01</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info_mid">
+                <div class="title">
+                    <span class="title_name">课程中心</span><span class="title_more"><a href="#">More&gt;&gt;</a></span>
+                </div>
+                <div class="pic_news">
+                    <img src="images/css.jpg" alt="课程图片">
+                    <p><a href="#"><span>css圆角进化论</span></a><br />三个阶段：背景图 CSS2.0+标签模拟圆角 CSS3.0圆角属性
+                        ①背景图
+                        宽度固定，高度自适应.<br /></p>
+                </div>
+                <div class="mid_info_list">
+                    <ul>
+                        <li><a href="#">PHP开发</a></li>
+                        <li><a href="#">JAVA开发</a></li>
+                        <li><a href="#">Python开发</a></li>
+                        <li><a href="#">Android开发</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info_right">
+                <div class="video">
+                    <div class="title">
+                        <span class="title_name">媒体中心</span><span class="title_more"><a href="#">More&gt;&gt;</a></span>
+                    </div>
+                    <div class="video_centent">
+                        <embed src='http://player.youku.com/player.php/sid/XMzkwNTA3MTYzMg==/v.swf' allowFullScreen='true' quality='high' width='220'
+                            height='150' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+                    </div>
+                    </div>
+                <div class="videoban">
+                    <img src="images/app.jpg" alt="广告">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--中间栏设置结束-->
+    <div class="footer">
+        <div class="footcontent">
+            <ul>
+                <li class="footbord"><a href="#">关于</a>
+                    <ul>
+                        <li><a href="#">首页1</a></li>
+                        <li><a href="#">首页1</a></li>
+                        <li><a href="#">首页1</a></li>
+                        <li><a href="#">首页1</a></li>
+                        <li><a href="#">首页1</a></li>
+                    </ul>
+                </li>
+                <li class="footbord"><a href="#">关于</a>
+                    <ul>
+                        <li><a href="#">首页2</a></li>
+                        <li><a href="#">首页2</a></li>
+                        <li><a href="#">首页2</a></li>
+                        <li><a href="#">首页2</a></li>
+                        <li><a href="#">首页2</a></li>
+                    </ul>
+                </li>
+                <li class="footbord"><a href="#">关于</a>
+                    <ul>
+                        <li><a href="#">首页3</a></li>
+                        <li><a href="#">首页3</a></li>
+                        <li><a href="#">首页3</a></li>
+                        <li><a href="#">首页3</a></li>
+                        <li><a href="#">首页3</a></li>
+                    </ul>
+                </li>
+                <li class="footbord"><a href="#">关于</a>
+                    <ul>
+                        <li><a href="#">首页4</a></li>
+                        <li><a href="#">首页4</a></li>
+                        <li><a href="#">首页4</a></li>
+                        <li><a href="#">首页4</a></li>
+                        <li><a href="#">首页4</a></li>
+                    </ul>
+                </li>
+                <li class="footbord">
+                    <ul>
+                        <li><img src="images/weixin.png" alt="">微信关注</li>
+                        <li><img src="images/qrcode.jpg" alt=""></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
     <script src="js/setHomeSetFav.js" charset="gb2312"></script>
     <script src="js/action.js"></script>
 </body>
+
 </html>
