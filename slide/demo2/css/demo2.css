@@ -1,0 +1,83 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.banner {
+    width: 1000px;
+    height: 310px;
+    margin: 100px auto;
+    border: 1px solid #808080;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner .img {
+    width: 3000px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.banner .img img {
+    width: 1000px;
+    height: 310px;
+}
+
+.banner .img li {
+    float: left;
+}
+
+.banner .num {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0px;
+    text-align: center;
+    font-size: 0px;
+}
+
+.banner .num li {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0px 3px;
+    cursor: pointer;
+}
+
+.banner .num li.on {
+    background-color: #ff6a00;
+}
+
+.banner .btn {
+    width: 30px;
+    height: 50px;
+    background-color: #808080;
+    opacity: 0.5;
+    filter: alpha(opacity=0.5);
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    font-size: 40px;
+    color: #fff;
+    font-family: "宋体";
+    display: none;
+}
+
+.banner .btn_l {
+    left: 0px;
+}
+
+.banner .btn_r {
+    right: 0px;
+}
+
+.banner:hover .btn {
+    display: block;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>demo3</title>
+<link rel="stylesheet" href="css/demo3.css">
+</head>
+<body>
+<div class="slide">
+    <!-- 导航点 -->
+    <ul class="slide-nav">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- /导航点 -->
+    <!-- 轮播图 -->
+    <div class="slide-content">
+        <div class="slide-item">
+            <img src="img/ad2.jpg" alt="图片一">
+        </div>
+        <div class="slide-item">
+            <img src="img/ad3.jpg" alt="图片二">
+        </div>
+        <div class="slide-item">
+            <img src="img/ad4.jpg" alt="图片三">
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <!-- 描述 -->
+    <div class="slide-info">
+        <P>图片1</P>
+    </div>
+    <!-- /轮播图 -->
+    <!-- 按钮 -->
+    <a href="javascript:void(0);" class="slide-btn prev"></a>
+    <a href="javascript:void(0);" class="slide-btn next"></a>
+    <!-- /按钮 -->
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js/demo3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.slide').slide();
+    });
+</script>
+</body>
+</html>
+

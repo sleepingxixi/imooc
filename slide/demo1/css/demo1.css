@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.content {
+    width: 1000px;
+    margin: 30px auto;
+    height: 310px;
+}
+
+.box {
+    width: 1000px;
+    overflow: hidden;
+    height: 310px;
+}
+
+#scroll_box {
+    list-style: none;
+}
+
+#scroll_box li {
+    width: 1000px;
+    float: left;
+    height: 310px;
+}
+
+#scroll_box li img {
+    width: 1000px;
+    height: 310px;
+}
