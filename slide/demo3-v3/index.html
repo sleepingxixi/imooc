@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>demo3-v3</title>
+<link rel="stylesheet" href="css/demo3-v3.css">
+</head>
+<body>
+<!-- 轮播图 -->
+<div id="sleeping">
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js/demo3-v3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#sleeping').slide({
+            time: 2000,
+            slideSpeed:500,
+            slideType:"fade",
+            slideNavType: "circle",
+            autoSlide:"true",
+            slideNavColor: "#ccc",
+            slideNavActiveColor: "#fff",
+            pic_content: [
+                {
+                    pic_url: "img/ad2.jpg",
+                    pic_info: "图片1"
+                },
+                {
+                    pic_url: "img/ad3.jpg",
+                    pic_info: "图片2"
+                },
+                {
+                    pic_url: "img/ad4.jpg",
+                    pic_info: "图片3"
+                }],
+            firstPicIndex: 0,
+            slideWidth: 1000,
+            slideHeight: 310
+        });
+    });
+</script>
+</body>
+</html>
+
