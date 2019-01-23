@@ -1,10 +1,7 @@
-// 这是轮播图升级版2，主要改进是：
-// 1.轮播图实现方式修改。从之前的复制一套图片的方式转换成仅用一套图片显示。
-// 2.优化了html结构，将图片与展示信息放在一个div中，结合相对定位和绝对定位实现。并且优化展示的函数。
-// 3.将图片和相关信息的数据进行了处理，变成了数组对象。
-// 4.使用了函数进行封装。
-// 5.改进用户指定显示的首张图片的方法。去掉排序，直接将index设置为用户需要看到的首张图片，并且指定了首张图片显示的位置
-// 6.添加了渐入渐出的效果，不改变html的结构的情况下
+// 这是轮播图升级版3，主要改进是：
+// 1.轮播图实现了两种方式
+// 2.将一些多种类型的行为封装成对象
+// 3.测试了可配置的选项
 
 $.fn.slide = function (options) {
     // 默认参数
@@ -12,9 +9,9 @@ $.fn.slide = function (options) {
         // 自动滚动开关
         autoSlide: "true",
         // 轮播滚动的类型选择,rolling为左右滚动，fade为渐变
-        slideType: "fade",
+        slideType: "rolling",
         // 导航按钮的样式,rectangle为长方形，circle为圆形,square为正方形
-        slideNavType: "circle",
+        slideNavType: "square",
 
         // 设置导航按钮的位置
         slideNavTop: "",
@@ -55,7 +52,7 @@ $.fn.slide = function (options) {
         firstPicIndex: 2,
 
         // 设置默认显示的高度
-        slideWidth: 1000,
+        slideWidth: 500,
         slideHeight: 310
 
 
@@ -77,6 +74,7 @@ $.fn.slide = function (options) {
         var slideSpeed = options.slideSpeed;
         var slideWidth = options.slideWidth; //显示窗口宽度
         var slideHeight = options.slideHeight; //显示窗口的高度
+        var slideType = options.slideType;
 
         var pic = options.pic_content;
         var pic_num = pic.length;
@@ -84,7 +82,6 @@ $.fn.slide = function (options) {
         var length = pic_num;    //item初始长度
         var firstPic = options.firstPicIndex;
         var index = firstPic;  //当前索引值
-        var preIndex=index;
 
         var slideNavType = options.slideNavType;
 
@@ -99,6 +96,8 @@ $.fn.slide = function (options) {
             //添加轮播图的样式
             addSlideStyle();
 
+            styleForSlideType(slideType);
+
             //鼠标悬浮事件
             mouseoverEvent();
 
@@ -112,7 +111,6 @@ $.fn.slide = function (options) {
             // 用于判读用户是否需要自动轮播
             isSetTimer();
         }
-
 
         // 创建轮播图的结构
         function createContain() {
@@ -148,26 +146,14 @@ $.fn.slide = function (options) {
             slideItem = slideEle.find('.slide-item');
             slideImg = slideImg = slideEle.find('.slide-item img');
             slideInfo = slideItem.find('.slide-info');
+
         }
 
         function addSlideStyle() {
-            //主要用于设置一些可以自定义的样式
-            // 判断用户是否设置有宽高，优先使用用户设置的宽高，否则使用否认值
-            // console.log(slideDiv.width());
-            if (slideDiv.width() != 0) {
-                slideWidth = slideDiv.width();
-            }
-            if (slideDiv.height() != 0) {
-                slideHeight = slideDiv.height();
-            }
             slideEle.css({
                 "width": slideWidth + "px",
                 "height": slideHeight + "px"
             });
-            slideContent.css({
-                "width": slideWidth * length + "px",
-                // "left": -slideWidth * index + "px"
-            }).css(leftForIndex(index));
             slideItem.css({
                 "width": slideWidth + "px",
                 "height": slideHeight + "px",
@@ -220,6 +206,40 @@ $.fn.slide = function (options) {
             })
         }
 
+        // 将不同动画而需要调整的样式封装在一个函数里，使用对象方式，可以减少判断语句填写
+        function styleForSlideType(type) {
+            var style = {
+                rolling: function () {
+                    slideContent.css({
+                        "width": slideWidth * length + "px",
+                    }).css(leftForIndex(index));
+                },
+                fade: function () {
+                    slideItem.css({
+                        "position": "absolute",
+                        "z-index": 0
+                    })
+                    slideItem.eq(index).css({
+                        "z-index": 1
+                    })
+                }
+            };
+            style[type]();
+        }
+
+        // 将动画封装在一个函数里，使用对象方式，可以减少判断语句的填写
+        function animateForSlideType(type) {
+            var animate = {
+                rolling: function () {
+                    slideContent.animate(leftForIndex(index), slideSpeed);
+                },
+                fade: function () {
+                    slideItem.eq(index).fadeIn(slideSpeed).siblings().stop(true, true).fadeOut(slideSpeed);
+                }
+            };
+            animate[type]();
+        }
+
         // 鼠标悬停事件，用于设置鼠标停在轮播图上时候的定时及按钮的状态
         function mouseoverEvent() {
             slideEle.hover(function () {  //移除定时任务
@@ -236,14 +256,14 @@ $.fn.slide = function (options) {
         function buttonClickEvent() {
             slideEle.find('.prev').click(function () {
                 if (!slideContent.is(':animated')) {
-                    index--;
+                    index = (index - 1) < 0 ? length - 1 : index - 1;
                     change();
                 }
 
             }).end()
                 .find('.next').click(function () {
                     if (!slideContent.is(':animated')) {
-                        index++;
+                        index = (index + 1) > length - 1 ? 0 : index + 1;
                         change();
                     }
                 });
@@ -268,62 +288,26 @@ $.fn.slide = function (options) {
         //设置定时器
         function setTimer() {
             timer = setInterval(function () {
-                index++;
+                index = (index + 1) > length - 1 ? 0 : index + 1;
                 change();
             }, time);
         }
 
         // 给用户设置动画
         function change() {
-            changeSlide();
+            animateForSlideType(slideType);
             changeNav();
-            // changeInfo();
         }
 
-        //轮播图切换
-        function changeSlide() {
-            switch (options.slideType) {
-                case "fade":
-                    fade();
-                    break;
-                default:
-                    rolling();
-                    break;
-            }
-        }
 
         // 设置滚动的函数
         function rolling() {
-            if (index < 0) {
-                index = length - 1;
-                // slideContent.css({ left: -slideWidth * (index - 1) + "px" });
-
-                // 当需要跳转到最后一张的时候会先让其快速切换到倒数第二张
-                rollingToIndex(index - 1);
-            } else if (index >= length) {
-                index = 0;
-                // slideContent.css({ left: -slideWidth * (index + 1) + "px" });
-
-                // 当需要其跳转到第1张的时候，会快速让其先切换到第二张
-                rollingToIndex(index + 1);
-            }
+            // slideContent.css(leftForIndex(index));
             slideContent.animate(leftForIndex(index), slideSpeed);
         }
 
-        function fade(){
-            if(index <0){
-                index = length-1;
-            }else if(index >=length){
-                index=0;
-            }
-            //rollingToIndex(index);
-            slideContent.css(beforeHade(index));
-            slideContent.animate(fadeInForIndex(index), slideSpeed);
-        }
-
-        // 用于设置滚动框的位置
-        function rollingToIndex(goalIndex) {
-            slideContent.css(leftForIndex(goalIndex));
+        function fade() {
+            slideItem.eq(index).fadeIn(slideSpeed).siblings().stop(true, true).fadeOut(slideSpeed);
         }
 
         // 用于设置向左滚动的位置
@@ -331,26 +315,6 @@ $.fn.slide = function (options) {
             return { "left": -slideWidth * goalIndex + "px" };
         }
 
-        // 用于设置渐变前的样式，包括透明度和位移
-        function beforeHade(goalIndex){
-            return {
-                "left": -slideWidth * goalIndex + "px",
-                "opacity":0.3
-            }
-        }
-        // 用于设置渐入的样式
-        function fadeInForIndex(goalIndex) {
-            return {
-                "left": -slideWidth * goalIndex + "px",
-                "opacity": 1
-            }
-        }
-
-        // function fade() {
-        //     slideItem.css({
-        //         "float": "left"
-        //     })
-        // }
         //导航点切换
         function changeNav() {
             slideNavLi.removeClass('active').css({
@@ -363,13 +327,6 @@ $.fn.slide = function (options) {
                 });
         }
 
-        // 切换描述信息
-        // function changeInfo() {
-        //     var info = $(slideImg.get(index)).attr('alt');
-        //     slideInfo.html(function () {
-        //         return "<p>" + info + "</p>";
-        //     });
-        // }
 
     });
     return this;
