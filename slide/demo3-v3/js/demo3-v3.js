@@ -299,17 +299,6 @@ $.fn.slide = function (options) {
             changeNav();
         }
 
-
-        // 设置滚动的函数
-        function rolling() {
-            // slideContent.css(leftForIndex(index));
-            slideContent.animate(leftForIndex(index), slideSpeed);
-        }
-
-        function fade() {
-            slideItem.eq(index).fadeIn(slideSpeed).siblings().stop(true, true).fadeOut(slideSpeed);
-        }
-
         // 用于设置向左滚动的位置
         function leftForIndex(goalIndex) {
             return { "left": -slideWidth * goalIndex + "px" };
